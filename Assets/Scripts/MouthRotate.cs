@@ -5,26 +5,40 @@ using UnityEngine.InputSystem;
 
 public class MouthRotate : MonoBehaviour
 {
-    [SerializeField] private InputAction pressed, moved;
+    [SerializeField] private InputActionAsset mouseControls;
+    private InputAction pressAction;
+    private InputAction moveAction;
 
     private Camera cam;
 
     [SerializeField] private float rotationSpeed = 1f;
     private Vector2 rotation;
 
-    private bool canRotate;
+    public bool canRotate;
     private void Awake()
     {
         cam = Camera.main;
 
-        pressed.Enable();
-        moved.Enable();
+        pressAction = mouseControls.FindActionMap("Mouse").FindAction("Press");
+        moveAction = mouseControls.FindActionMap("Mouse").FindAction("Move");
 
-        pressed.performed += _ => { StartCoroutine(Rotate()); };
-        pressed.canceled += _ => { canRotate = false; };
-        moved.performed += context => { rotation = context.ReadValue<Vector2>(); };
-        moved.canceled += context => { rotation = Vector2.zero; };
+        pressAction.performed += _ => { StartCoroutine(Rotate()); };
+        pressAction.canceled += _ => { canRotate = false; };
+        moveAction.performed += context => { rotation = context.ReadValue<Vector2>(); };
+        moveAction.canceled += context => { rotation = Vector2.zero; };
 
+    }
+
+    private void OnEnable()
+    {
+        pressAction.Enable();
+        moveAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        pressAction.Disable();
+        moveAction.Disable();
     }
 
     private IEnumerator Rotate()
