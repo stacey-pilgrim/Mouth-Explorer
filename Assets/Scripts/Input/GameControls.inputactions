@@ -1,8 +1,8 @@
 {
-    "name": "PlayerControls",
+    "name": "GameControls",
     "maps": [
         {
-            "name": "Player",
+            "name": "PlayerControls",
             "id": "b2af0ce1-3ca5-4ab9-946e-96f49ea7cd37",
             "actions": [
                 {
@@ -11,7 +11,7 @@
                     "id": "7f88c6ba-84ce-49d8-9751-66e8539fd41c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "initialStateCheck": false
                 },
                 {
@@ -108,6 +108,74 @@
                     "processors": "",
                     "groups": "",
                     "action": "Activate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "MouseControls",
+            "id": "f3cf93d7-e930-4104-b1cf-91bbce3e682c",
+            "actions": [
+                {
+                    "name": "Press",
+                    "type": "Button",
+                    "id": "518895d6-ca7d-4478-a69a-d0bffbb5f153",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Drag",
+                    "type": "Value",
+                    "id": "297d89a5-7a95-4d73-9726-0fa854dbac86",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Rotate",
+                    "type": "Value",
+                    "id": "be4de185-13ab-48e2-9e63-cd053da61037",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "773bd910-ebb3-48c6-9f4b-cdc95d7c7f09",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Press",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bc9f4c31-d5f9-46b5-9aee-98034c661742",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drag",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ca19a417-8514-44e8-ac82-df7ce7f824a8",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

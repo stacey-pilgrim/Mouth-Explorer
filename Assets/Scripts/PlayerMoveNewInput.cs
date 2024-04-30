@@ -5,6 +5,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerMoveNewInput : MonoBehaviour
 {
+    [SerializeField] private InputActionAsset gameControls;
+    private InputAction activateAction, moveAction, lookAction;
+    private Vector2 moveInput, lookInput;
+
     [SerializeField] float moveSpeed = 2f;
     [SerializeField] float mouseSensitivity = 0.5f;
     [SerializeField] float upDownRange = 20f;
@@ -14,20 +18,14 @@ public class PlayerMoveNewInput : MonoBehaviour
     private Camera mainCamera;
     private CharacterController characterController;
 
-    [SerializeField] private InputActionAsset playerControls;
-    private InputAction activateAction;
-    private InputAction moveAction;
-    private InputAction lookAction;
-    private Vector2 moveInput;
-    private Vector2 lookInput;
     void Awake()
     {   
         characterController = GetComponent<CharacterController>();
         mainCamera = Camera.main;
 
-        activateAction = playerControls.FindActionMap("Player").FindAction("Activate");
-        moveAction = playerControls.FindActionMap("Player").FindAction("Move");
-        lookAction = playerControls.FindActionMap("Player").FindAction("Look");
+        activateAction = gameControls.FindActionMap("PlayerControls").FindAction("Activate");
+        moveAction = gameControls.FindActionMap("PlayerControls").FindAction("Move");
+        lookAction = gameControls.FindActionMap("PlayerControls").FindAction("Look");
 
         moveAction.performed += context => moveInput = context.ReadValue<Vector2>();
         moveAction.canceled += context => moveInput = Vector2.zero;

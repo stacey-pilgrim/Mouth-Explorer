@@ -1042,7 +1042,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1463044068}
   - component: {fileID: 1463044070}
-  - component: {fileID: 1463044069}
   - component: {fileID: 1463044071}
   - component: {fileID: 1463044072}
   m_Layer: 0
@@ -1068,21 +1067,6 @@ Transform:
   - {fileID: 763619016}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1463044069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1463044067}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4e2f02e251847c44b3356f6a48f149c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1
-  mouseSensitivity: 2
-  upDownRange: 20
 --- !u!143 &1463044070
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1121,10 +1105,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f5366260764bd943820355b0e991edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameControls: {fileID: -944628639613478452, guid: f3751f41ba9ced942a7e5d6e7b2601ad, type: 3}
   moveSpeed: 2
   mouseSensitivity: 0.2
   upDownRange: 20
-  playerControls: {fileID: -944628639613478452, guid: f3751f41ba9ced942a7e5d6e7b2601ad, type: 3}
 --- !u!114 &1463044072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1134,11 +1118,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1463044067}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 407611f4fd3a60d4bac6a1fd30fd5f72, type: 3}
+  m_Script: {fileID: 11500000, guid: baed2663a6668c240b8fb4063be0a965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseControls: {fileID: -944628639613478452, guid: ce0fc58ee30c22643b285b7d88fe9d5e, type: 3}
-  rotationSpeed: 10
+  gameControls: {fileID: -944628639613478452, guid: f3751f41ba9ced942a7e5d6e7b2601ad, type: 3}
+  rotationSpeed: 15
 --- !u!1001 &1596848742
 PrefabInstance:
   m_ObjectHideFlags: 0
