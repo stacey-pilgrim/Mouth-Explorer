@@ -20,15 +20,9 @@ public class ButtonEvents : MonoBehaviour
 
     private void OnSettingsButtonClick()
     {
-        Debug.Log("Settings");
         if (settingsPanel.activeInHierarchy == false)
-        {
- 
             settingsPanel.SetActive(true);
-        } 
         else
-        {
             settingsPanel.SetActive(false);
-        }
     }
 }

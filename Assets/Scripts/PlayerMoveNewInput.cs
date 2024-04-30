@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMoveNewInput : MonoBehaviour
+public class PlayerMoveNewInput : MonoBehaviour, IData
 {
     [SerializeField] private InputActionAsset gameControls;
     private InputAction activateAction, moveAction, lookAction;
@@ -76,5 +76,19 @@ public class PlayerMoveNewInput : MonoBehaviour
         rotationVertical = Mathf.Clamp(rotationVertical, -upDownRange, upDownRange);
 
         mainCamera.transform.localRotation = Quaternion.Euler(rotationVertical, 0, 0);
+    }
+
+    public void ResetData(GameData data)
+    {
+
+    }
+    public void LoadData(GameData data)
+    {
+
+    }
+
+    public void SaveData(GameData data)
+    {
+
     }
 }

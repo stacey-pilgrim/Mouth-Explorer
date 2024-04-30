@@ -7,10 +7,12 @@ public class MouseDragOrRotate : MonoBehaviour
     [SerializeField] private InputActionAsset gameControls;
     private InputAction pressAction, dragAction, rotateAction;
 
-    [SerializeField] private float rotationSpeed = 20f;
+    [SerializeField] private float rotationSpeed = 0.1f;
     [SerializeField] private float dragSpeed = 50f;
 
     private Vector2 rotateInput;
+    private Vector2 rotation;
+
     private Vector3 movePos;
     private Vector3 offset;
 
@@ -104,8 +106,9 @@ public class MouseDragOrRotate : MonoBehaviour
             canRotate = true;
             while (canRotate)
             {
-                transform.Rotate(Vector3.down, rotateInput.x * rotationSpeed * Time.deltaTime, Space.World);
-                transform.Rotate(cam.transform.right, rotateInput.y * rotationSpeed * Time.deltaTime, Space.World);
+                rotation.y -= rotateInput.x * rotationSpeed;
+                rotation.x += rotateInput.y * rotationSpeed;
+                transform.localRotation = Quaternion.Euler(rotation.x, rotation.y, 0f);
                 yield return null;
             }
         }
@@ -127,7 +130,7 @@ public class MouseDragOrRotate : MonoBehaviour
             while (canDrag)
             {
                 Vector3 newPosition = MouseWorldPos() + offset;
-                transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * dragSpeed);
+                transform.position = Vector3.Lerp(transform.position, newPosition, dragSpeed);
                 yield return null;
             }
         }

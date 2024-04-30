@@ -342,6 +342,72 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2cf96b4ff685bd442bfda18e3a6743d9, type: 3}
   m_PrefabInstance: {fileID: 347024823}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &259797350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 259797351}
+  m_Layer: 6
+  m_Name: canine snap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &259797351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259797350}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.20213515, y: -0.35448718, z: 0.0078153685, w: 0.912918}
+  m_LocalPosition: {x: 0.17, y: 0.16, z: -0.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 332183952}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &332183951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 332183952}
+  m_Layer: 0
+  m_Name: Snap Points
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &332183952
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332183951}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2039152410}
+  - {fileID: 259797351}
+  - {fileID: 2106180252}
+  - {fileID: 1771827747}
+  m_Father: {fileID: 1334202162}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &347024823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -627,6 +693,50 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97cb592ad9c7caf46a8296c30a0c5920, type: 3}
+--- !u!1 &758200998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 758201000}
+  - component: {fileID: 758200999}
+  m_Layer: 0
+  m_Name: DataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &758200999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758200998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ee5779b0a0a92f4f881cefe8706d618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &758201000
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758200998}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.059004635, y: -0.22686908, z: 0.14157182}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &763619013
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,7 +985,7 @@ GameObject:
   - component: {fileID: 929483871}
   - component: {fileID: 929483873}
   m_Layer: 5
-  m_Name: SettingsButton
+  m_Name: Settings Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -981,6 +1091,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1334202162}
   - component: {fileID: 1334202163}
+  - component: {fileID: 1334202164}
+  - component: {fileID: 1334202165}
   m_Layer: 7
   m_Name: Jaw
   m_TagString: Rotatable
@@ -1003,10 +1115,11 @@ Transform:
   m_Children:
   - {fileID: 121291485}
   - {fileID: 1428805}
-  - {fileID: 1291688390}
   - {fileID: 2092147452}
+  - {fileID: 1291688390}
   - {fileID: 500229931}
   - {fileID: 35129507}
+  - {fileID: 332183952}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1334202163
@@ -1032,6 +1145,30 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: -0.1, z: 0}
+--- !u!114 &1334202164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334202161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3a472e64c4de348bbd1ce541397fcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1334202165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334202161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfcb2d9313d64e44fbb418d9c79e9566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1463044067
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,7 +1259,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameControls: {fileID: -944628639613478452, guid: f3751f41ba9ced942a7e5d6e7b2601ad, type: 3}
-  rotationSpeed: 15
+  rotationSpeed: 0.1
+  dragSpeed: 10
+  snapPoints:
+  - {fileID: 2039152410}
+  - {fileID: 259797351}
+  - {fileID: 2106180252}
+  - {fileID: 1771827747}
+  snapThreshold: 0.25
 --- !u!1001 &1596848742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1222,11 +1366,73 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1291688393}
   m_SourcePrefab: {fileID: 100100000, guid: 5a6bb81b4ae3e0c40973c18c5d0b25da, type: 3}
+--- !u!1 &1771827746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1771827747}
+  m_Layer: 6
+  m_Name: 3rd molar snap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1771827747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771827746}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.24988219, y: 0.5572494, z: -0.17508858, w: 0.7722539}
+  m_LocalPosition: {x: -0.28, y: -0.223, z: 0.173}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 332183952}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2006210273 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e058d8bfd059a5f4e886a7d7ee7b18ad, type: 3}
   m_PrefabInstance: {fileID: 826963080}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2039152409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2039152410}
+  m_Layer: 6
+  m_Name: incisor snap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2039152410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039152409}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.22212769, y: -0.23469658, z: -0.028739639, w: 0.9459127}
+  m_LocalPosition: {x: 0.046, y: 0.12, z: -0.44}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 332183952}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2092147452 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e058d8bfd059a5f4e886a7d7ee7b18ad, type: 3}
@@ -1273,6 +1479,37 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!1 &2106180251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2106180252}
+  m_Layer: 6
+  m_Name: molar snap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2106180252
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106180251}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.056644335, y: -0.6413161, z: 0.20060527, w: 0.738419}
+  m_LocalPosition: {x: 0.25, y: -0.29, z: 0.055}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 332183952}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2125031305
 GameObject:
   m_ObjectHideFlags: 0
@@ -1403,7 +1640,7 @@ GameObject:
   - component: {fileID: 2139808170}
   - component: {fileID: 2139808172}
   m_Layer: 5
-  m_Name: SettingsPanel
+  m_Name: Settings Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1461,3 +1698,4 @@ SceneRoots:
   - {fileID: 31704273}
   - {fileID: 2125031308}
   - {fileID: 116877446}
+  - {fileID: 758201000}
