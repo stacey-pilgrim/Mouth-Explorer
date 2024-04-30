@@ -22,10 +22,10 @@ public class MouthRotate : MonoBehaviour
         pressAction = mouseControls.FindActionMap("Mouse").FindAction("Press");
         moveAction = mouseControls.FindActionMap("Mouse").FindAction("Move");
 
-        pressAction.performed += _ => { StartCoroutine(Rotate()); };
-        pressAction.canceled += _ => { canRotate = false; };
-        moveAction.performed += context => { rotation = context.ReadValue<Vector2>(); };
-        moveAction.canceled += context => { rotation = Vector2.zero; };
+        pressAction.performed += _ => StartCoroutine(Rotate());
+        pressAction.canceled += _ => canRotate = false;
+        moveAction.performed += context => rotation = context.ReadValue<Vector2>();
+        moveAction.canceled += _ => rotation = Vector2.zero;
 
     }
 

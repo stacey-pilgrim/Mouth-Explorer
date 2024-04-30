@@ -33,7 +33,6 @@ public class PlayerMoveNewInput : MonoBehaviour
         moveAction.canceled += context => moveInput = Vector2.zero;
         lookAction.performed += context => lookInput = context.ReadValue<Vector2>();
         lookAction.canceled += context => lookInput = Vector2.zero;
-
     }
 
     private void OnEnable()

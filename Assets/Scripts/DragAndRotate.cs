@@ -12,8 +12,10 @@ public class DragAndRotate : MonoBehaviour
     private InputAction positionAction;
 
     [SerializeField] private float rotationSpeed = 1f;
-    private Vector3 movePos;
     private Vector2 rotation;
+
+    private Vector3 movePos;
+    private Vector3 offset;
 
     private Camera cam;
 
@@ -31,11 +33,10 @@ public class DragAndRotate : MonoBehaviour
         moveAction = mouseControls.FindActionMap("Mouse").FindAction("Move");
         positionAction = mouseControls.FindActionMap("Mouse").FindAction("Position");
 
-        positionAction.performed += context => { movePos = context.ReadValue<Vector2>(); };
-        positionAction.canceled += context => { movePos = Vector2.zero; };
+        positionAction.performed += context => movePos = context.ReadValue<Vector2>();
 
-        moveAction.performed += context => { rotation = context.ReadValue<Vector2>(); };
-        moveAction.canceled += context => { rotation = Vector2.zero; };
+        moveAction.performed += context => rotation = context.ReadValue<Vector2>();
+        moveAction.canceled += _ => rotation = Vector2.zero;
 
         pressAction.performed += _ => { if (clickedObjectTag == "Draggable") StartCoroutine(Drag()); };
         pressAction.performed += _ => { if (clickedObjectTag == "Rotatable") StartCoroutine(Rotate()); };
@@ -74,11 +75,13 @@ public class DragAndRotate : MonoBehaviour
             clickedObject = hit.transform;
             clickedObjectTag = clickedObject.gameObject.tag;
             clickedObject.GetComponent<Outline>().enabled = true;
+            canRotate = false;
         }
         else if (Physics.Raycast(ray, out hit, Mathf.Infinity, jawLayerMask))
         {
             clickedObject = hit.transform;
             clickedObjectTag = clickedObject.gameObject.tag;
+            canDrag = false;
         }
         else
         {
@@ -99,12 +102,21 @@ public class DragAndRotate : MonoBehaviour
             yield return null;
         }
     }
+
+    private Vector3 MouseWorldPos()
+    {
+        movePos.z = cam.WorldToScreenPoint(clickedObject.position).z;
+        return cam.ScreenToWorldPoint(movePos);
+    }
+
     private IEnumerator Drag()
     {
         canDrag = true;
+        offset = clickedObject.position - MouseWorldPos();
 
         while (canDrag)
         {
+            clickedObject.position = MouseWorldPos() + offset;
             yield return null;
         }
     }
