@@ -36,19 +36,16 @@ public class SettingsEvents : MonoBehaviour
 
     private void OnResetButtonClick()
     {
-        Debug.Log("Reset");
         DataManager.instance.ResetGame();
     }
 
     private void OnSaveButtonClick()
     {
-        Debug.Log("Save");
         DataManager.instance.SaveGame();
     }
 
     private void OnLoadButtonClick()
     {
-        Debug.Log("Load");
         DataManager.instance.LoadGame();
     }
 

@@ -13,6 +13,9 @@ public class DataManager : MonoBehaviour
     private List<IData> dataObjects;
 
     private FileDataHandler dataHandler;
+
+    private Vector3[] startTeethCoords;
+    private Quaternion[] startTeethAngles;
     public static DataManager instance { get; private set; }
 
     private void Awake()
@@ -24,11 +27,30 @@ public class DataManager : MonoBehaviour
     {
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
         this.dataObjects = new List<IData>(FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IData>());
+
+        startTeethCoords = new Vector3[32];
+        startTeethAngles = new Quaternion[32];
+
+        GameObject[] dragTeeth = GameObject.FindGameObjectsWithTag("Draggable");
+        foreach (GameObject tooth in dragTeeth)
+        {
+            int number = tooth.GetComponent<ToothUpdate>().toothNumber;
+            startTeethCoords[number - 1] = tooth.transform.position;
+            startTeethAngles[number - 1] = tooth.transform.rotation;
+        }
+
+        ResetGame();
     }
 
     public void ResetGame()
     {
         this.gameData = new GameData();
+
+        for (int i = 0; i < 32; i++)
+        {
+            this.gameData.teethCoords[i] = startTeethCoords[i];
+            this.gameData.teethAngles[i] = startTeethAngles[i];
+        }
 
         foreach (IData dataObj in dataObjects)
             dataObj.LoadData(gameData);
@@ -39,10 +61,14 @@ public class DataManager : MonoBehaviour
         this.gameData = dataHandler.Load();
 
         if (this.gameData == null)
-            this.gameData = new GameData();
-
-        foreach (IData dataObj in dataObjects) 
-            dataObj.LoadData(gameData);
+        {
+            ResetGame();
+        }
+        else
+        {
+            foreach (IData dataObj in dataObjects)
+                dataObj.LoadData(gameData);
+        }
     }
 
     public void SaveGame()

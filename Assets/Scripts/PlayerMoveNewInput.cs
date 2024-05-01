@@ -78,17 +78,16 @@ public class PlayerMoveNewInput : MonoBehaviour, IData
         mainCamera.transform.localRotation = Quaternion.Euler(rotationVertical, 0, 0);
     }
 
-    public void ResetData(GameData data)
-    {
-
-    }
     public void LoadData(GameData data)
     {
-
+        transform.SetPositionAndRotation(data.playerCoords, data.playerAngles);
+        mainCamera.transform.rotation = data.cameraAngles;
     }
 
     public void SaveData(GameData data)
     {
-
+        data.playerCoords = transform.position;
+        data.playerAngles = transform.rotation;
+        data.cameraAngles = mainCamera.transform.rotation;
     }
 }
