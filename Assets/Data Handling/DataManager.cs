@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class DataManager : MonoBehaviour
 {
@@ -35,8 +36,8 @@ public class DataManager : MonoBehaviour
         foreach (GameObject tooth in dragTeeth)
         {
             int number = tooth.GetComponent<ToothUpdate>().toothNumber;
-            startTeethCoords[number - 1] = tooth.transform.position;
-            startTeethAngles[number - 1] = tooth.transform.rotation;
+            startTeethCoords[number - 1] = tooth.transform.localPosition;
+            startTeethAngles[number - 1] = tooth.transform.localRotation;
         }
 
         ResetGame();
